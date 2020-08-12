@@ -29,4 +29,22 @@ class PhotosController < ApplicationController
 
     render({:template => "photo_templates/details.html.erb"})
   end
+
+  def update
+    id = params.fetch("the_photo_id")
+    the_photo = Photo.where({ :id => id }).at(0)
+    the_photo.caption = params.fetch("query_caption")
+    the_photo.image = params.fetch("query_image")
+    the_photo.save
+    
+    redirect_to("/photos/#{the_photo.id}")
+  end
+  
+  def destroy
+    id = params.fetch("the_photo_id")
+    the_photo = Photo.where({ :id => id }).at(0)
+    the_photo.destroy
+
+    redirect_to("/photos")
+  end
 end

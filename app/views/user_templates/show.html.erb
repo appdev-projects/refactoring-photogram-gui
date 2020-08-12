@@ -6,13 +6,16 @@
 
   <dt>Edit user</dt>
   <dd>
-    edit form goes here
+    <form action="/update_user/<%= @the_user.id %>" >
+      <label for="browser_username">Username</label>
+      <input id="browser_username" type="text" name="query_username" placeholder="Enter a username..." value="<%= @the_user.username %>">
+
+      <button>Update user</button>
+    </form>
   </dd>
 </dl>
 
-<% own_photos = Photo.where({ :owner_id => @the_user.id }) %>
-
-<h2>Own photos (<%= own_photos.count %>)</h2>
+<h2>Own photos (<%= @the_user.own_photos.count %>)</h2>
 
 <table border="1">
   <tr>
@@ -35,7 +38,7 @@
     <th></th>
   </tr>
 
-  <% own_photos.each do |photo| %>
+  <% @the_user.own_photos.each do |photo| %>
   <tr>
     <td>
       <img src="<%= photo.image %>">
@@ -50,7 +53,7 @@
     </td>
 
     <td>
-      <%= photo.created_at %>
+      <%= time_ago_in_words(photo.created_at) %>
     </td>
     
     <td>

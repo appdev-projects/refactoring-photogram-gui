@@ -1,20 +1,4 @@
 class CommentsController < ApplicationController
-  def index
-    matching_comments = Comment.all.order({ :created_at => :asc })
-
-    render({ :json => matching_comments.as_json })
-  end
-
-  def show
-    the_id = params.fetch(:the_comment_id)
-
-    matching_comments = Comment.where({ :id => the_id })
-    
-    the_comment = matching_comments.at(0)
-    
-    render({ :json => the_comment.as_json })
-  end
-
   def create
     the_comment = Comment.new
     the_comment.author_id = params.fetch(:query_author_id, nil)
