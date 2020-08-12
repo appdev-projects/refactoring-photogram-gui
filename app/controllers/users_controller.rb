@@ -39,13 +39,8 @@ class UsersController < ApplicationController
     redirect_to("/users/#{the_user.username}")
   end
 
-  def destroy
-    username = params.fetch("the_username")
-    matching_users = User.where({ :username => username })
-    the_user = matching_users.at(0)
 
-    the_user.destroy
 
-    redirect_to("/users")
-  end
+ 
+
 end

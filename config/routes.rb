@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get("/", { :controller => "users", :action => "index" })
 
   # User routes
@@ -13,8 +14,7 @@ Rails.application.routes.draw do
   # UPDATE
   get("/update_user/:the_user_id", {:controller => "users", :action => "update" })
 
-  # DELETE
-  get("/delete_user/:the_user_id", {:controller => "users", :action => "destroy"})
+
 
   # Photo routes
 

@@ -9,4 +9,6 @@ class CommentsController < ApplicationController
 
     redirect_to("/photos/#{the_comment.photo_id}")
   end
+
+
 end

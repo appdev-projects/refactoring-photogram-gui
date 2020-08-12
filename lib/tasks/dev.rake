@@ -1,5 +1,5 @@
-desc "Fill the database tables with some dummy data"
-task({ :dummy_data => :environment}) do
+desc "Fill the database tables with some sample data"
+task({ :sample_data => :environment}) do
   starting = Time.now
 
   if Rails.env.production?
@@ -4226,6 +4226,5 @@ task({ :dummy_data => :environment}) do
   elapsed = ending - starting
 
   puts "#{elapsed.to_i} seconds elapsed."
-  puts "Generated Dummy Data"
+  puts "Generated Sample Data"
 end
-

@@ -19,7 +19,7 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module PhotogramGui
+module PhotogramSignin
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
@@ -31,8 +31,6 @@ module PhotogramGui
       g.javascripts     false
       g.helper          false
     end
-    # Load AdminUser model
-    config.autoload_paths += %W(#{config.root}/vendor/app/models)
 
     config.action_controller.default_protect_from_forgery = false
     config.active_record.belongs_to_required_by_default = false
