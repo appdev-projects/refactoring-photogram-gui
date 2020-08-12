@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def index
-    list_of_comments = Comment.all.order({ :created_at => :asc })
+    matching_comments = Comment.all.order({ :created_at => :asc })
 
-    render({ :json => list_of_comments.as_json })
+    render({ :json => matching_comments.as_json })
   end
 
   def show
