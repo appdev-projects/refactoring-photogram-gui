@@ -3,17 +3,17 @@
 <dl>
   <dt>Image</dt>
   <dd>
-    <img src="<%= @photo.image %>">
+    <img src="<%= @the_photo.image %>">
   </dd>
 
   <dt>Caption</dt>
   <dd>
-    <p><%= @photo.caption %></p>
+    <p><%= @the_photo.caption %></p>
   </dd>
 
   <dt>Owner</dt>
   <dd>
-    <%= @photo.poster.username %>
+    <%= @the_photo.poster.username %>
   </dd>
 
   <dt>Posted</dt>
@@ -41,7 +41,7 @@
     <th>Posted</th>
   </tr>
 
-  <% the_comments = Comment.where({ :photo_id => @photo.id }) %>
+  <% the_comments = Comment.where({ :photo_id => @the_photo.id }) %>
   <% the_comments.each do |comment| %>
   <tr>
     <td>
@@ -65,7 +65,7 @@
 
 <form action="/insert_comment_record">
   <label for="photo_id_field">Photo ID</label>
-  <input id="photo_id_field" type="text" value="<%= @photo.id %>" name="query_photo_id">
+  <input id="photo_id_field" type="text" value="<%= @the_photo.id %>" name="query_photo_id">
 
   <label for="author_id_field">Author ID</label>
   <input id="author_id_field" type="text" name="query_author_id">

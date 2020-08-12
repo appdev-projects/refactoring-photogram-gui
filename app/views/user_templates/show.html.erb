@@ -1,8 +1,8 @@
-<h1><%= @user.username %></h1>
+<h1><%= @the_user.username %></h1>
 
 <dl>
   <dt>ID</dt>
-  <dd><%= @user.id %></dd>
+  <dd><%= @the_user.id %></dd>
 
   <dt>Edit user</dt>
   <dd>
@@ -10,7 +10,7 @@
   </dd>
 </dl>
 
-<% own_photos = Photo.where({ :owner_id => @user.id }) %>
+<% own_photos = Photo.where({ :owner_id => @the_user.id }) %>
 
 <h2>Own photos (<%= own_photos.count %>)</h2>
 
